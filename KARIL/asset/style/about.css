@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: 'Shrikhand', cursive;
+  background-color: #8bf38b;
+  color: #014421;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #00000000 0%, #00000033 60%, #00000099 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+h1.hero-text {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #014421;
+  z-index: 2;
+  text-align: center;
+}
+
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 2.1rem;
+  cursor: pointer;
+  color: #014421;
+  z-index: 3;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #8bf38b; 
+  padding: 60px 20px;
+  box-shadow: 2px 0 5px #33333333;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition: all 0.3s ease;
+  z-index: 2;
+  background: radial-gradient(ellipse at center, #00000000 0%, #ffffff33 50%, #ffffff33 100%);
+}
+
+#menu-toggle:checked + .menu-icon ~ .sidebar {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  color: #014421;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.sidebar ul li a:hover {
+  color: #006400; 
+}
+
+#menu-toggle:checked ~ .profile-logo {
+  opacity: 0;
+  pointer-events: none;
+}
